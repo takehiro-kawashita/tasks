@@ -1,0 +1,16 @@
+<% if @result%>
+    $("table").append("<tr>
+        <td><%= @task.title%></td>
+        </tr>")
+    $("#title").val("")
+<% else %>
+    $(".alert").html("登録に失敗しました")
+<% end %>
+
+<!--function AddTaskList(){-->
+<!--    var UserTask = document.getElementById('').value;-->
+<!--    document.getElementById('').value += UserTask + '\n';-->
+<!--}-->
+
+
+    

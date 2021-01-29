@@ -1,0 +1,57 @@
+<h1>タスクリスト</h1>
+
+<%= form_with url: tasks_path, method: "post" do |f| %>
+    <div class="form-row">
+        <div class="col">
+            <p>年</p>
+         <%= f.number_field :year, class: "form-control" %>            
+        </div>
+        <div class="col">
+            <p>月</p>
+         <%= f.number_field :month, class: "form-control" %>            
+        </div>
+        <div class="col">
+            <p>日</p>
+         <%= f.number_field :day, class: "form-control" %>
+        </div>
+        <div class="col">
+            <p>重要度</p>
+         <%= f.text_field :rank, class: "form-control" %>
+        </div>
+        <div class="col">
+            <p>タイトル</p>
+         <%= f.text_field :title, class: "form-control" %>            
+        </div>
+        <div class="col">
+            <p>詳細</p>
+         <%= f.text_field :detail, class: "form-control" %>
+        </div
+        <div class="col">
+            <p>分類</p>
+          <%= f.text_field :category, class: "form-control" %>            
+        </div>
+    </div>
+    <%= f.submit "作成",class: "btn btn-success"%>
+
+<% end %>    
+    
+<table class="table table-hover">
+    <tr>
+        <th>期限</th>
+        <th>重要度</th>
+        <th>タスク名</th>
+        <th>詳細</th>
+        <th>分類</th>
+        <th></th>
+    </tr>
+    <% @task.each do |task| %>
+    <tr>
+        <td><%= task.year %>年<%= task.month %>月<%= task.day %>日</td>
+        <td><%= task.rank %></td>
+        <td><%= task.title %></td>
+        <td><%= task.detail %></td>
+        <td><%= task.category%></td>
+        <td><%= link_to "削除",tasks_path,method: "delete",class: "btn btn-danger"%></td>
+    </tr>
+    <% end %>        
+</table>
