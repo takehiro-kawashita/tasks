@@ -1,8 +1,20 @@
 <% if @result%>
     $("table").append("<tr>
+        <td><%= @task.year %></td>
+        <td><%= @task.month %></td>
+        <td><%= @task.day %></td>
+        <td><%= @task.rank %></td>
         <td><%= @task.title%></td>
+        <td><%= @task.detail%></td>
+        <td><%= @task.category%></td>
         </tr>")
+    $("#year").val("")
+    $("#month").val("")
+    $("#day").val("")
+    $("#rank").val("")
     $("#title").val("")
+    $("#detail").val("")
+    $("#category").val("")
 <% else %>
     $(".alert").html("登録に失敗しました")
 <% end %>

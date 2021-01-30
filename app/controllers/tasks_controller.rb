@@ -10,7 +10,7 @@ class TasksController < ApplicationController
     end
     
     def destroy
-        @task = Task.find_by(year: params[:year],month: params[:month],day: params[:day],rank: params[:rank],title: params[:title],detail: params[:detail],category: params[:category])
+        @task = Task.find_by(params[:id])
         @task.destroy
         redirect_to tasks_path
     end
