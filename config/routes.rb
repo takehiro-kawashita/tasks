@@ -6,6 +6,5 @@ Rails.application.routes.draw do
   # delete "/tasks/:id",to: "tasks#destroy"
   resources :tasks
   
-  root "tasks#index"
-  get "tasks/show"
+  root to: "tasks#index"
 end
