@@ -1,13 +1,15 @@
 <% if @result%>
-    $("table").append("<tr>
-        <td><%= @task.year %></td>
-        <td><%= @task.month %></td>
-        <td><%= @task.day %></td>
+    var heredoc = (function () {/*
+    <tr>
+        <td><%= @task.year %>年<%= @task.month %>月<%= @task.day %>日</td>
         <td><%= @task.rank %></td>
         <td><%= @task.title%></td>
         <td><%= @task.detail%></td>
         <td><%= @task.category%></td>
-        </tr>")
+        <td><%= link_to '削除',task_path(id: @task.id),method:'delete',data:{confirm: '本当に削除しますか？'},class: 'btn btn-danger' %></td>
+        </tr> 
+    */}).toString().match(/(?:\/\*(?:[\s\S]*?)\*\/)/).pop().replace(/^\/\*/, "").replace(/\*\/$/, "");
+    $("table").append(heredoc)
     $("#year").val("")
     $("#month").val("")
     $("#day").val("")
