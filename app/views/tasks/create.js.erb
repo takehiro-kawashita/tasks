@@ -1,18 +1,16 @@
 <% if @result%>
     var heredoc = (function () {/*
     <tr>
-        <td><%= @task.year %>年<%= @task.month %>月<%= @task.day %>日</td>
+        <td><%= @task.limited_at %></td>
         <td><%= @task.rank %></td>
         <td><%= @task.title%></td>
         <td><%= @task.detail%></td>
         <td><%= @task.category%></td>
         <td><%= link_to '削除',task_path(id: @task.id),method:'delete',data:{confirm: '本当に削除しますか？'},class: 'btn btn-danger' %></td>
-        </tr> 
+    </tr> 
     */}).toString().match(/(?:\/\*(?:[\s\S]*?)\*\/)/).pop().replace(/^\/\*/, "").replace(/\*\/$/, "");
     $("table").append(heredoc)
-    $("#year").val("")
-    $("#month").val("")
-    $("#day").val("")
+    $("#limited_at").val("")
     $("#rank").val("")
     $("#title").val("")
     $("#detail").val("")
