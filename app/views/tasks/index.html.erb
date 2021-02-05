@@ -1,6 +1,7 @@
 <h1>タスクリスト</h1>
 
 <%= form_with url: tasks_path, method: "post" do |f| %>
+<div class="container">
     <div class="form-row">
         <!--<div class="col-xs-2">-->
         <!--<label>年</label>-->
@@ -37,10 +38,10 @@
         </div>
     </div>
     <%= f.submit "作成",class: "btn btn-success"%>
+</div>
 
-<% end %>    
-    
-<table class="table table-hover">
+<% end %>       
+<table class="container table table-hover">
     <tr>
         <th>期限</th>
         <th>重要度</th>
@@ -51,7 +52,7 @@
     </tr>
     <% @task.each do |task| %>
     <tr>
-        <td><%= task.limited_at %></td>
+        <td><%= task.limited_at.strftime("%Y年%m月%d日") %></td>
         <td><%= task.rank %></td>
         <td><%= task.title %></td>
         <td><%= task.detail %></td>
