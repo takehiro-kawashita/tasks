@@ -1,34 +1,22 @@
-<h1>タスクリスト</h1>
-
 <%= form_with url: tasks_path, method: "post" do |f| %>
 <div class="container">
-    <div class="form-row">
-        <!--<div class="col-xs-2">-->
-        <!--<label>年</label>-->
-
-        <!--</div>-->
-        <!--<div class="col-xs-2">-->
-        <!--<label>月</label>-->
-
-        <!--</div>-->
-        <!--<div class="col-xs-2">-->
-        <!--<label>日</label>-->
-
-        <!--</div>-->
-        <label> 期限: </label>
-        <%= f.date_field :limited_at %>
-        <!--<input type="date" id="start" name="trip-start">-->
+    <div class="form mb-4">
+        <h1>タスクリスト</h1>
     </div>
+    <div class="form-row  mb-3">
+              <label class="mr-3 mb-0"> 期限: </label>
+            <%= f.date_field :limited_at %>
+     </div>
     <div class="form-group">
-        <div class="col-xs-2">
+        <div class="col-xs-2 mb-3">
         <label>重要度</label>
          <%= f.text_field :rank, class: "form-control" %>
         </div>
-        <div class="col-xs-2">
+        <div class="col-xs-2 mb-3">
         <label>タイトル</label>
          <%= f.text_field :title, class: "form-control" %>            
         </div>
-        <div class="col-xs-2">
+        <div class="col-xs-2 mb-3">
         <label>詳細</label>
          <%= f.text_field :detail, class: "form-control" %>
         </div
@@ -36,13 +24,12 @@
         <label>分類</label>
           <%= f.text_field :category, class: "form-control" %>            
         </div>
+        <%= f.submit "作成",class: "btn btn-outline-success mb-4"%>        
     </div>
-    <%= f.submit "作成",class: "btn btn-success"%>
 </div>
-
 <% end %>       
 <table class="container table table-hover">
-    <tr>
+    <tr class="bg-info text-light">
         <th>期限</th>
         <th>重要度</th>
         <th>タスク名</th>
