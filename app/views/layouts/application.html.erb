@@ -16,21 +16,21 @@
   <body>
     <header>
       <nav class="bg-light">
+        <div class="container">
         <% if user_signed_in? %>
-          <strong><%= link_to current_user.username,tasks_show_path %></strong>
+
           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete%>
         <% else %>
-        <div class="container bg-light">
             <%= link_to 'サインアップ',new_user_registration_path,class:"btn btn-outline-success"%>
             <%= link_to 'ログイン', new_user_session_path,class:"btn btn-outline-primary" %>
+        <% end %>          
         </div>
-        <% end %>
       </nav>
     </header>
-  
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
     <%= yield %>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
